@@ -1,3 +1,5 @@
+![Easy peasy!](http://bitemeblog.files.wordpress.com/2011/08/3567green_pea.jpg)
+
 django-easy-api
 ===============
 
@@ -5,8 +7,10 @@ django-easy-api
 
 The easiest way to use **django_easy_api** is to simply replace render_to_response:
 
-    # from django.shortcuts import render_to_response
-    from easy_api.shortcuts import render_to_response 
+```python
+# from django.shortcuts import render_to_response
+from easy_api.shortcuts import render_to_response 
+```
 
 So if this returns a rendered HTML view:
 
@@ -34,15 +38,18 @@ Then add it to your INSTALLED_APPS.
 
 The easiest way to use **django_easy_api** is to simply replace render_to_response:
 
-    # from django.shortcuts import render_to_response
-    from easy_api.shortcuts import render_to_response 
+```python
+# from django.shortcuts import render_to_response
+from easy_api.shortcuts import render_to_response 
+```
 
 Now, all of your views will have API versions as well!
 
 If you only want to use **django_easy_api** for certain views, you can use it explicitly:
 
+```python
     from easy_api.shortcuts import render_to_easy_api_response
-
+```
 and then use it in your view instead of render_to_response.
 
 ## Notes
