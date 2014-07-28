@@ -48,7 +48,7 @@ Now, all of your views will have API versions as well!
 If you only want to use **django_easy_api** for certain views, you can use it explicitly:
 
 ```python
-    from easy_api.shortcuts import render_to_easy_api_response
+from easy_api.shortcuts import render_to_easy_api_response
 ```
 and then use it in your view instead of render_to_response.
 
