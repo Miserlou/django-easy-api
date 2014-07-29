@@ -34,16 +34,33 @@ def render_to_easy_api_response(*args, **kwargs):
     if request.GET.has_key('api'):
         api_type = request.GET['api']
 
-        for arg in args:
-            passed = arg
+        if api_type == 'xml':
 
-        dump_me = ''
+            for arg in args:
+                passed = arg
 
-        for key in passed.keys():
-            value = passed[key]
-            dump_me = dump_me + dump_object(value)
+            dump_me = ''
 
-        return HttpResponse(dump_me, content_type='application/json')
+            for key in passed.keys():
+                value = passed[key]
+                dump_me = dump_me + dump_object(value)
+
+            return HttpResponse(dump_me, content_type='application/xml')
+
+        else:
+
+            for arg in args:
+                passed = arg
+
+            dump_me = ''
+
+            for key in passed.keys():
+                value = passed[key]
+                dump_me = dump_me + dump_object(value)
+
+                dump_me = json.dumps(json.loads(dump_me), indent=2)
+
+            return HttpResponse(dump_me, content_type='application/json')
 
 
     return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
@@ -54,6 +71,13 @@ def render_to_response(*args, **kwargs):
     """
 
     return render_to_easy_api_response(*args, **kwargs)
+
+###
+#
+# Serializers stuff. Mostly stolen from what I did making django-knockout-modeler
+# but honestly, I might replace all of this with stuff from here: https://djangosnippets.org/snippets/1162/
+#
+##
 
 def dump_object(queryset):
 

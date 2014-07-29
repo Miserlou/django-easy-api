@@ -1,4 +1,4 @@
-![Easy peasy!](http://bitemeblog.files.wordpress.com/2011/08/3567green_pea.jpg)
+![Easy peasy!](http://i.imgur.com/LQujlwt.png)
 
 django-easy-api
 ===============
