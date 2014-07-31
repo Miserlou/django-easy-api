@@ -54,11 +54,9 @@ and then use it in your view instead of render_to_response.
 
 ## Notes
 
-Okay, okay, so it's not a FULL API. It's just for GETs. If you want a full-featured API, look at Django-Rest-Framework. However, if you just need a machine-readable version of your site, this is far and away the easiest way to do it!
+Okay, okay, so it's not a FULL API. It's just for GETs. If you want a full-featured API, look at [Django-Rest-Framework](http://www.django-rest-framework.org/). However, if you just need a machine-readable version of your site, this is far and away the easiest way to do it!
 
 ### TODO:
 
-* I don't know what it does for ForeignKeys.
-* XML doesn't work yet.
-* I haven't tested this in production.
-
+* I don't know what it does for ForeignKeys. To be tested!
+* I haven't tested this in production, but it should work.
