@@ -23,6 +23,7 @@ except Exception, e:
 from .dumper import DataDumper # Probably can be deprecated.
 from dicttoxml import dicttoxml as dict2xml # Requirest dict2xml dep.
 from xml.dom.minidom import parseString # For prettyfication
+import yaml
 
 def render_to_easy_api_response(*args, **kwargs):
     """
@@ -46,7 +47,6 @@ def render_to_easy_api_response(*args, **kwargs):
             passed = arg
 
         dump_me = {}
-
         for key in passed.keys():
             value = passed[key]
             dump_me[key] = dump_object(value)
@@ -69,10 +69,12 @@ def render_to_easy_api_response(*args, **kwargs):
             dom = parseString(dump_me)  # I love pretty APIs!
             pretty = dom.toprettyxml()
             return HttpResponse(pretty, content_type='application/xml')
+        if api_type == 'yaml':
+            yml = yaml.safe_dump(dump_me)
+            return HttpResponse(yml, content_type='application/x-yaml')
         else:    
             dump_me = json.dumps(dump_me, indent=2)  # Indents for pretty
             return HttpResponse(dump_me, content_type='application/json')
-
 
     return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
 
