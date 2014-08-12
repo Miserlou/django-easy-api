@@ -26,13 +26,22 @@ and this returns an XML serialized view of the same page:
 
 Hooray! You literally don't have to do anything else.
 
-## Installation
+#### Installation
 
-You know the drill:
+0. Install django-easy-split
 
-    pip install django_easy_api
+    ```python
+    pip install django-easy-api
+    ```
 
-Then add it to your INSTALLED_APPS.
+1. Add 'easy_api' to your INSTALLED_APPS setting like this:
+
+    ```python
+    INSTALLED_APPS = (
+      ...
+      'easy_api',
+    )
+    ```
 
 ## Usage
 
