@@ -61,6 +61,10 @@ from easy_api.shortcuts import render_to_easy_api_response
 ```
 and then use it in your view instead of render_to_response.
 
+## Advanced Usage
+
+If you want to control, which fields of your model are exposed in your feeds, you can define a function for you model called easy_api_fields, which should return a list of the name of the properties you want to expose.
+
 ## Notes
 
 Okay, okay, so it's not a FULL API. It's just for GETs. If you want a full-featured API, look at [Django-Rest-Framework](http://www.django-rest-framework.org/). However, if you just need a machine-readable version of your site, this is far and away the easiest way to do it!
